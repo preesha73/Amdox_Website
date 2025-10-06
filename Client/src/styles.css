@@ -1,0 +1,287 @@
+/* In Client/src/styles.css */
+
+/* --- Global Styles & Variables --- */
+:root {
+  --primary-color: #6a5af9;
+  --primary-hover: #5a49e0;
+  --background-color: #f0f2f5;
+  --container-bg: #ffffff;
+  --text-color: #333;
+  --label-color: #555;
+  --border-color: #ddd;
+  --success-color: #28a745;
+  --error-color: #dc3545;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column; /* <-- ADD THIS LINE */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --- Page & Container Layout --- */
+.page-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.form-container, .dashboard-container {
+  background-color: var(--container-bg);
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Typography & Messages --- */
+.form-title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  font-size: 2rem;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.success-msg {
+  background-color: #eaf6ec;
+  color: var(--success-color);
+}
+
+.error-msg {
+  background-color: #fdecea;
+  color: var(--error-color);
+}
+
+/* --- Form Elements --- */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--label-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Important for padding and width */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(106, 90, 249, 0.2);
+}
+
+/* --- Buttons --- */
+.btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* --- Dashboard Specific --- */
+.dashboard-container p {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.dashboard-container .user-name {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.logout-btn {
+  margin-top: 1.5rem;
+  background-color: #6c757d;
+}
+
+.logout-btn:hover {
+  background-color: #5a6268;
+}
+
+/* In Client/src/styles.css (add this to the end) */
+
+/* --- Welcome Page Styles --- */
+.welcome-container {
+  text-align: center;
+  background-color: var(--container-bg);
+  padding: 3rem 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+  font-size: 1.1rem;
+  color: var(--label-color);
+  margin-bottom: 2rem;
+}
+
+.welcome-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Make the Link tag look like our button */
+.welcome-buttons .btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 14px 28px;
+  width: auto;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* --- Loading Indicator Style --- */
+.loading-fullscreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* --- App Layout & Main Navigation --- */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Space between links */
+  margin-bottom: 2rem; /* Space above the main content box */
+  padding: 1rem 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--label-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  background-color: rgba(106, 90, 249, 0.1); /* Light primary color background */
+}
+
+/* Style for the currently active page link */
+.nav-link.active {
+  color: var(--primary-hover);
+  background-color: rgba(106, 90, 249, 0.15);
+}
+
+/* In styles.css (add this to the end) */
+
+/* --- Dashboard Welcome Styles --- */
+.dashboard-welcome-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.dashboard-subtitle {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: var(--label-color);
+}
+
+.dashboard-info {
+  text-align: center;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+/* Add to the end of styles.css */
+.nav-link-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  font: inherit;
+  color: var(--label-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.nav-link-button:hover {
+  color: var(--primary-color);
+  background-color: rgba(106, 90, 249, 0.1);
+  border-radius: 6px;
+}
