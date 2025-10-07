@@ -19,6 +19,17 @@ const userSchema = new mongoose.Schema({
     required: true,
     select: false, // Don't send password in API responses by default
   },
+  role: {
+    type: String,
+    enum: ['JobSeeker', 'Employer'],
+    default: 'JobSeeker',
+  },
+  profile: {
+    phone: { type: String },
+    location: { type: String },
+    bio: { type: String },
+    avatarUrl: { type: String },
+  },
 }, {
   timestamps: true, // Automatically adds createdAt and updatedAt fields
 });

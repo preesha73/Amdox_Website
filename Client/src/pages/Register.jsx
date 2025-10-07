@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import api from '../api';
 
 export default function Register() {
-  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const [form, setForm] = useState({ name: '', email: '', password: '', role: 'JobSeeker' });
   const [msg, setMsg] = useState(null);
   const [isError, setIsError] = useState(false);
 
@@ -13,7 +13,7 @@ export default function Register() {
     try {
       await api.post('/api/register', form);
       setMsg('Registered successfully! You can now log in.');
-      setForm({ name: '', email: '', password: '' }); // Clear form on success
+      setForm({ name: '', email: '', password: '', role: 'JobSeeker' }); // Clear form on success
     } catch (err) {
       setMsg(err.response?.data?.error || 'Error');
       setIsError(true);
@@ -30,6 +30,16 @@ export default function Register() {
           </p>
         )}
         <form onSubmit={submit}>
+          <div className="form-group">
+            <label>I am a</label>
+            <select
+              value={form.role}
+              onChange={(e) => setForm({ ...form, role: e.target.value })}
+            >
+              <option value="JobSeeker">Job Seeker</option>
+              <option value="Employer">Employer</option>
+            </select>
+          </div>
           <div className="form-group">
             <label>Name</label>
             <input

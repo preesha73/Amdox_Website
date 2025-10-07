@@ -285,3 +285,64 @@ input:focus {
   background-color: rgba(106, 90, 249, 0.1);
   border-radius: 6px;
 }
+
+/* --- Profile Page Minimal Styling --- */
+.profile-page { max-width: 900px; }
+
+.profile-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: var(--container-bg);
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  margin-bottom: 1rem;
+}
+
+.avatar-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #eef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.profile-head-text h2 { margin: 0 0 4px 0; }
+.role-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(106,90,249,0.12);
+  color: var(--primary-hover);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.email-line { color: var(--label-color); font-size: 0.9rem; }
+
+.tabs { display: flex; gap: .5rem; margin: 1rem 0; }
+.tab {
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.tab.active { border-color: var(--primary-color); color: var(--primary-color); background: rgba(106,90,249,0.08); }
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  padding: 1.25rem;
+}
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group.full { grid-column: 1 / -1; }
+
+textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 5px; font-size: 1rem; box-sizing: border-box; }
+select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 5px; font-size: 1rem; box-sizing: border-box; }
