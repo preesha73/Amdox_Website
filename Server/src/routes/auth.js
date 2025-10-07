@@ -19,7 +19,7 @@ router.post('/api/register', async (req, res) => {
   }
 });
 
-router.post('/api/login', async (req, res) => {
+router.post('/api/login', async (req, res) => { // <-- Add 'async' here
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email }).select('+password');
@@ -59,5 +59,14 @@ router.put('/api/change-password', authMiddleware, async (req, res) => {
     return res.status(500).json({ error: 'Server error' });
   }
 });
+
+// ... in your /api/login route
+const user = await User.findOne({ email }).select('+password');
+
+// If the user exists, we call our custom method
+if (!user || !(await user.comparePassword(password))) {
+  return res.status(401).json({ error: 'Invalid email or password' });
+}
+// ... if it matches, create a token
 
 module.exports = router;

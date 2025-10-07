@@ -49,6 +49,27 @@ userSchema.methods.comparePassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
+// This function runs before a user document is saved
+userSchema.pre('save', async function (next) {
+  // Only hash the password if it has been modified (or is new)
+  if (!this.isModified('password')) {
+    return next();
+  }
+
+  // 1. Generate a "salt" to make the hash unique
+  const salt = await bcrypt.genSalt(10);
+  
+  // 2. Hash the password with the salt
+  this.password = await bcrypt.hash(this.password, salt);
+  
+  next();
+});
+
+// Method to compare entered password with the hashed password in the DB
+userSchema.methods.comparePassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
